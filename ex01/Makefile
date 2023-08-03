@@ -1,19 +1,51 @@
 NAME = phone
 
 CC = c++
-FLAGS = -Wall -Wextra -werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
-SRCS += PhoneBook.cpp
-SRCS += Contact.cpp
-SRCS += main.cpp
 
-all : $(NAME)
+RESET		=	\033[0m
+GREEN		=	\033[32m
+YELLOW		=	\033[33m
+BLUE		=	\033[34m
+RED			=	\033[31m
+#UP			=	\033[A
+#CUT			=	\033[K
 
-$(NAME) :
-	$(CC) $(SRCS) -o $(NAME)
+SRC_DIR		=	src/
+OBJ_DIR		=	obj/
+INC_DIR		=	include/
 
-clean :
-	$(RM) $(NAME)
+SRC_FILES	=	main.cpp PhoneBook.cpp Contact.cpp
+
+OBJ_FILES	=	$(SRC_FILES:.cpp=.o)
+
+#paths
+SRC			=	$(addprefix $(SRC_DIR), $(SRC_FILES))
+OBJ			=	$(addprefix $(OBJ_DIR), $(OBJ_FILES))
+
+all: $(NAME)
+	@printf "$(GREEN)            ___ ___          ___    _____    _     _   \n$(RESET)"
+	@printf "$(RED) ___ _ _   |   |_  |     ___|  _|  |    _| _| |_ _| |_ \n$(RESET)"
+	@printf "$(YELLOW)| -_|_'_|  | | |_| |_   | . |  _|  |   |_ |_   _|_   _|\n$(RESET)"
+	@printf "$(BLUE)|___|_,_|  |___|_____|  |___|_|    |_____|  |_|   |_|  \n$(RESET)"
+	@printf "\n"
+
+#compile the executable
+$(NAME): $(OBJ)
+	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	@echo "$(GREEN)Finished [$(NAME)]$(RESET)"
+
+#compile objects
+$(OBJ_DIR)%.o:$(SRC_DIR)%.cpp
+	@mkdir -p $(OBJ_DIR)
+	@$(CC) $(CFLAGS) -I $(INC_DIR) -o $@ -c $<
+
+clean : 
+	@$(RM) $(OBJ_DIR)
+
+fclean : clean
+	@$(RM) $(NAME)
 
 re : clean all
