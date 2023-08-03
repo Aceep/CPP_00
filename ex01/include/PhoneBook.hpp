@@ -19,7 +19,8 @@ class PhoneBook
 
         void    get_information() const;
         void    set_information();
-        std::string show_instruction()const;        
+        std::string show_instruction()const;
+        void   processInput();
 };
 
 #endif

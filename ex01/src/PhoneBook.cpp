@@ -76,7 +76,6 @@ void    PhoneBook::get_information() const
             std::getline(std::cin, input);
         }
         index = input[0] - '0';
-        std::cout << "     index|first name| last name|  nickname|" << std::endl;
         while (i <= this->_index)
         {
             if (index == i + 1)

@@ -3,10 +3,11 @@
 
 int main()
 {
-    std::string input;
+    std::string input = "La fete-a-la-maison";
     PhoneBook PhoneBook;
     bool    run = true;
-
+    std::cout << input.length() << std::endl;
+    std::cout << input.size() << std::endl;
     std::cout << "Welcome to the PhoneBook !" << PhoneBook.show_instruction() << std::endl;
     while (run && std::getline(std::cin, input))
     {

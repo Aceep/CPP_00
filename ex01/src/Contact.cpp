@@ -65,7 +65,7 @@ bool    Contact::create_contact()
 }
 std::string Contact::print_len(std::string info)const
 {
-    if (info.size() > 10)
+    if (info.length() > 10)
         info = info.substr(0, 9) + ".";
     return (info);
 }

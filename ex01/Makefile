@@ -1,4 +1,4 @@
-NAME = phone
+NAME = phonebook
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
@@ -16,7 +16,7 @@ OBJ_DIR		=	obj/
 INC_DIR		=	include/
 
 SRC_FILES	=	main.cpp PhoneBook.cpp Contact.cpp
-
+SRC_BONUS	=	test.cpp src/PhoneBook.cpp src/Contact.cpp
 OBJ_FILES	=	$(SRC_FILES:.cpp=.o)
 
 #paths
@@ -47,3 +47,7 @@ fclean : clean
 	@$(RM) $(NAME)
 
 re : clean all
+
+bonus : all
+	@$(CC) $(CFLAGS) -I $(INC_DIR) $(SRC_BONUS) -o $(NAME)
+	@echo "$(GREEN)Finished [$(NAME)]$(RESET)"
