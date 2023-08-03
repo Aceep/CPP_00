@@ -63,7 +63,12 @@ bool    Contact::create_contact()
         return (false);
     return (true);
 }
-
+std::string Contact::print_len(std::string info)const
+{
+    if (info.size() > 10)
+        info = info.substr(0, 9) + ".";
+    return (info);
+}
 void    Contact::set_index(int index)
 {
     this->_index = index;
@@ -72,7 +77,17 @@ void    Contact::set_index(int index)
 void    Contact::display()const
 {
     std::cout << std::setw(10) << this->_index << "|";
-    std::cout << std::setw(10) << this->_first_name.substr(0, 9) << "|";
-    std::cout << std::setw(10) << this->_last_name.substr(0, 9) << "|";
-    std::cout << std::setw(10) << this->_nickname.substr(0, 9) << "|" << std::endl;
+    std::cout << std::setw(10) << this->print_len(_first_name) << "|";
+    std::cout << std::setw(10) << this->print_len(_last_name) << "|";
+    std::cout << std::setw(10) << this->print_len(_nickname) << "|" << std::endl;
+}
+
+void Contact::view(int i)const
+{
+    std::cout << "This is your contact number" << i << std::endl;
+    std::cout << "First name : " << this->_first_name << std::endl;
+    std::cout << "Last name : " << this->_last_name << std::endl;
+    std::cout << "Nickname : " << this->_nickname << std::endl;
+    std::cout << "Phone Number : " << this->_phone_number << std::endl;
+    std::cout << "Darkest secret : " << this->_darkest_secret << std::endl;
 }

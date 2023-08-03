@@ -22,6 +22,8 @@ class Contact
         bool    create_contact();
         void    display()const;
         void    set_index(int index);
+        void    view(int i)const;
+        std::string print_len(std::string info)const;
         bool    is_empty(std::string str, std::string message);
 };
 

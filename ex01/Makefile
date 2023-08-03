@@ -10,8 +10,6 @@ GREEN		=	\033[32m
 YELLOW		=	\033[33m
 BLUE		=	\033[34m
 RED			=	\033[31m
-#UP			=	\033[A
-#CUT			=	\033[K
 
 SRC_DIR		=	src/
 OBJ_DIR		=	obj/

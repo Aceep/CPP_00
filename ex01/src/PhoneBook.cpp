@@ -61,6 +61,13 @@ void    PhoneBook::get_information() const
         std::cout << "The PhoneBook is empty, please enter one of the following commands :\nADD\nEXIT\n";
     else
     {
+        std::cout << "     index|first name| last name|  nickname|" << std::endl;
+        while (i < this->_index)
+        {
+            this->_contact[i].display();
+            i++;
+        }
+        i= 0;
         std::cout << "Please enter the index of the contact you want to see (You have " << this->_index << " contact(s))"<< std::endl;
         std::getline(std::cin, input);
         while(input.empty() == true || input.length() > 1 || input[0] < '1' || input[0] > '8' || input[0] - '0' > this->_index)
@@ -74,7 +81,7 @@ void    PhoneBook::get_information() const
         {
             if (index == i + 1)
             {
-                this->_contact[i].display();
+                this->_contact[i].view(i + 1);
                 break;
             }
             else
