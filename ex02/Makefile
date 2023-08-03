@@ -16,16 +16,16 @@ OBJ = $(addprefix $(OBJ_DIR), $(OBJ_FILES))
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 
 $(OBJ_DIR)%.o:%.cpp
-	mkdir -p $(OBJ_DIR)
-	$(CC) $(FLAGS) -o $@ -c $<
+	@mkdir -p $(OBJ_DIR)
+	@$(CC) $(FLAGS) -o $@ -c $<
 
 clean :
-	$(RM) $(OBJ_DIR)
+	@$(RM) $(OBJ_DIR)
 
 fclean : clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
 
 re : clean all
