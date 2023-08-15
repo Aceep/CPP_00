@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: alycgaut <alycgaut@student.42.fr>          +#+  +:+       +#+         #
+#    By: aceep <aceep@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/27 17:20:21 by alycgaut          #+#    #+#              #
-#    Updated: 2023/08/03 11:02:01 by alycgaut         ###   ########.fr        #
+#    Updated: 2023/08/15 12:54:57 by aceep            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,9 +33,9 @@ $(OBJ_DIR)%.o:%.cpp
 	@$(CC) $(FLAGS) -o $@ -c $<
 
 clean :
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
 	
 fclean : clean
-	$(RM) $(OBJ_DIR)
+	@$(RM) $(OBJ_DIR)
 
 re : clean all

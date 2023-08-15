@@ -1,5 +1,6 @@
 #!/usr/bin/expect
-spawn ./phonebook
+spawn ../ex01/phonebook
+pwd
 expect "*\r"
 send "ADD\r"
 expect "*\r"
@@ -148,5 +149,6 @@ send "ADD\r"
 expect "*\r"
 send "\r"
 expect "*\r"
+send "0\r"
 send "EXIT\r"
 expect "*\r"
